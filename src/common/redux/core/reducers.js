@@ -16,24 +16,24 @@ const initialState = {
   modalError: null,
   blocks: [],
   transactions: [],
-  updateInfo: {}
+  updateInfo: {},
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case Core.SET_SERVER_STARTED:
       return Object.assign({}, state, {
-        started: true
+        started: true,
       });
     case Core.SET_KEY_DATA:
       return Object.assign({}, state, {
         mnemonic: action.mnemonic,
         hdPath: action.hdPath,
-        privateKeys: action.privateKeys
+        privateKeys: action.privateKeys,
       });
     case Core.SET_LAST_REQUESTED_BLOCK_NUMBER:
       return Object.assign({}, state, {
-        lastRequestedBlock: action.number
+        lastRequestedBlock: action.number,
       });
 
     case Core.GET_ACCOUNTS:
@@ -50,62 +50,62 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, {
         accounts,
         accountBalances,
-        accountNonces
+        accountNonces,
       });
 
     case Core.GET_ACCOUNT_BALANCE:
       var accountBalances = Object.assign({}, state.accountBalances, {
-        [action.account]: action.balance
+        [action.account]: action.balance,
       });
       return Object.assign({}, state, {
-        accountBalances
+        accountBalances,
       });
 
     case Core.GET_ACCOUNT_NONCE:
       var accountNonces = Object.assign({}, state.accountNonces, {
-        [action.account]: action.nonce
+        [action.account]: action.nonce,
       });
       return Object.assign({}, state, {
-        accountNonces
+        accountNonces,
       });
 
     case Core.SET_GAS_PRICE:
       return Object.assign({}, state, {
-        gasPrice: action.gasPrice
+        gasPrice: action.gasPrice,
       });
 
     case Core.SET_GAS_LIMIT:
       return Object.assign({}, state, {
-        gasLimit: action.gasLimit
+        gasLimit: action.gasLimit,
       });
 
     case Core.SET_BLOCK_NUMBER:
       return Object.assign({}, state, {
-        latestBlock: action.number
+        latestBlock: action.number,
       });
 
     case Core.SET_SYSTEM_ERROR:
       return Object.assign({}, state, {
         systemError: action.error,
-        showBugModal: action.showBugModal
+        showBugModal: action.showBugModal,
       });
 
     case Core.SET_MODAL_ERROR:
       return Object.assign({}, state, {
-        modalError: action.error
+        modalError: action.error,
       });
 
     case Core.DISMISS_MODAL_ERROR:
       return Object.assign({}, state, {
-        modalError: null
+        modalError: null,
       });
 
     case Core.SET_NEW_VERSION_INFO:
       return Object.assign({}, state, {
         updateInfo: {
           newVersion: action.newVersion,
-          releaseNotes: action.releaseNotes
-        }
+          releaseNotes: action.releaseNotes,
+        },
       });
 
     default:

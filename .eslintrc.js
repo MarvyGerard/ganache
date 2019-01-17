@@ -3,7 +3,8 @@ module.exports = {
   plugins: ["prettier"],
   parser: "babel-eslint",
   rules: {
-    "prettier/prettier": [1, { trailingComma: "all" }]
+    "prettier/prettier": [1, { trailingComma: "all" }],
+    "no-console": "off"
   },
   env: {
     es6: true,
